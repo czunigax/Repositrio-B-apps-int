@@ -62,3 +62,4 @@ variable "queue_name" {
   default     = "procesos"  # No puedes usar interpolación aquí
 }
 
+

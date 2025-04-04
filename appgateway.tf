@@ -42,7 +42,7 @@ resource "azurerm_application_gateway" "main" {
   backend_address_pool {
     name = "backend-pool"
     # Configura según tu backend (IPs o FQDNs)
-    fqdns = ["backend.azurewebsites.net"] # Ejemplo para App Service
+    fqdns = ["backend.azurewebsites.net"] 
   }
 
   backend_http_settings {
@@ -72,14 +72,14 @@ resource "azurerm_application_gateway" "main" {
   # Configuración WAF actualizada para azurerm >= 3.0
   waf_configuration {
     enabled          = true
-    firewall_mode    = "Detection" # Cambiar a "Prevention" para producción
+    firewall_mode    = "Detection" 
     rule_set_type    = "OWASP"
     rule_set_version = "3.2"
 
     # Configuración opcional de reglas deshabilitadas
     disabled_rule_group {
       rule_group_name = "REQUEST-942-APPLICATION-ATTACK-SQLI"
-      rules           = [942100, 942110] # Ejemplo: IDs de reglas específicas a deshabilitar
+      rules           = [942100, 942110] 
     }
 
     request_body_check       = true
